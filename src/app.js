@@ -10,7 +10,7 @@ window.msgCounter = 0;
 window.formData = {}; // holds the data that the user entered into forms
 window.sharedData = {}; // data that is passed to the views
 window.loggedIn = false; // determines the logged in state of the user
-window.db = new Kinvey('kid_HkDTC00_O', 'fe48df71d633493da0ce575b0f4bf710');
+window.db = new Kinvey('kid_HJNicPfqd', '76e60e033b7444d79f8f4df192c76590');
 
 
 
