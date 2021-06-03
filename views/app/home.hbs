@@ -1,0 +1,81 @@
+{{>navbar}}
+
+{{#if isLoading}}
+<div class="text-center mt-5 ">
+  <img class="loading-icon" src="../../images/loading.gif" alt="">
+</div>
+{{else}}
+
+{{>notifications}}
+
+
+{{#if loggedIn}}
+        {{#if displayRecipes}}
+            
+         <h1 class="text-center">Our Recipes</h1>
+            {{#each allRecipes}}
+            <div id="sharedRecipes">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="our-team-main">
+
+                                <div class="team-front">
+                                    <img class="titleImage" src="{{categoryImageURL}}" />
+                                    <h3>{{meal}}</h3>
+                                    <p>{{category}}</p>
+                                </div>
+
+                                <div class="team-back">
+                                    <div class="back-side-info">
+                                        <h4>Ingredients</h4>
+                                        <ul>
+                                        {{#each titleIngredients}}
+                                            <li>{{this}}</li>
+                                        {{/each}}
+                                        </ul>
+                                        <a href="#/details/{{_id}}">View the recipe</a>
+                                    </div>
+
+                                    <img class="foodImage img-fluid"
+                                        src="{{foodImageURL}}" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}} 
+        {{else}}
+                <div id='foodNotFound'>
+                    <img src="https://t4.ftcdn.net/jpg/00/62/17/31/240_F_62173114_ozantkVtkPgzL0fxssAkTqKX1FHPr0UW.jpg" />
+                    <h3>Food not found...</h3>
+                </div>
+        {{/if}}
+
+        {{else}}
+<main>
+    <div class="jumbotron jumbotron-fluid mt-4">
+        <div class="container mb-3">
+            <br>
+            <br>
+            <h1 class="display-3 text-dark h1">Coooooking University</h1>
+            <hr class="my-4">
+            <div class="cover-message">
+                <p class="display-5 text-dark h4">They say that food passes through the stomach, we say that food passes through CookUni...</p>
+            </div>   
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div class=" text-center">
+        <a class="btn btn-danger my-4 btn-block w-25 m-auto" href="#/user/signup" role="button">Enroll Today</a>
+    </div>
+</main>
+{{/if}}
+{{/if}}
+
+
+{{>footer}}

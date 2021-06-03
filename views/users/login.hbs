@@ -1,0 +1,35 @@
+{{>navbar}}
+
+
+{{#if isLoading}}
+<div class="text-center mt-5 ">
+  <img class="loading-icon" src="../../images/loading.gif" alt="">
+</div>
+{{else}}
+
+
+<div class="mt-2 "> {{!-- added --}}
+{{>notifications}}
+     
+<form class="text-center p-5 form-layout" action="#/user/login" method="POST" novalidate>
+
+    <p class="h4 mb-4">Sign in</p>
+
+
+    <input type="text" id="defaultRegisterFormUsername" name="username" value="{{username.input}}" class="form-control mb-4 {{#if username.invalid}}is-invalid{{/if}} {{#if username.valid}} is-valid{{/if}}"
+        placeholder="Username">
+
+    <input type="password" id="defaultRegisterFormPassword" name="password" value="{{password.input}}" class="form-control {{#if password.invalid}}is-invalid{{/if}} {{#if password.valid}} is-valid{{/if}}"
+        placeholder="Password">
+    <hr>
+
+    <div class="text-center">
+        <p>Don't have an account ? <a href="#/user/signup">Signup</a></p>
+        <button class="btn btn-danger w-25 m-auto my-4 btn-block" type="submit">Sign in</button>
+    </div>
+
+ </form>
+
+</div>
+{{/if}}
+

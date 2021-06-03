@@ -1,0 +1,45 @@
+{{>navbar}}
+
+{{#if isLoading}}
+<div class="text-center mt-5 ">
+  <img class="loading-icon" src="../../images/loading.gif" alt="">
+</div>
+{{else}}
+
+    {{>notifications}}
+
+
+<form class="text-center p-5 form-layout" action="#/user/signup" method="POST" novalidate>
+
+    <p class="h4 mb-4">Sign up</p>
+    
+
+    <div class="form-row mb-4">
+        <div class="col">
+
+            <input type="text" id="defaultRegisterFormFirstName" class="form-control {{#if firstname.invalid}}is-invalid{{/if}} {{#if firstname.valid}} is-valid{{/if}}" name="firstname" value="{{firstname.input}}" placeholder="First name">
+        </div>
+        <div class="col">
+
+            <input type="text" id="defaultRegisterFormLastName" class="form-control {{#if lastname.invalid}}is-invalid{{/if}} {{#if lastname.valid}} is-valid{{/if}}" name="lastname" value="{{lastname.input}}" placeholder="Last name">
+        </div>
+    </div>
+
+    <input type="text" id="defaultRegisterFormUsername" value="{{username.input}}" class="form-control mb-4 {{#if username.invalid}}is-invalid{{/if}} {{#if username.valid}} is-valid{{/if}}" name="username"
+        placeholder="Username">
+
+    <input type="password" id="defaultRegisterFormPassword" name="password" value="{{password.input}}" class="form-control {{#if password.invalid}}is-invalid{{/if}} {{#if password.valid}} is-valid{{/if}}"  placeholder="Password">
+    <hr>
+    <input type="password" id="defaultRegisterRepeatPassword" name="password2" value="{{password2.input}}" class="form-control {{#if password2.invalid}}is-invalid{{/if}} {{#if password2.valid}} is-valid{{/if}}"  placeholder="Repeat Password">
+
+     <div class="text-center">
+        <p>Have an account? <a href="#/user/login">Login</a></p>
+        <button class="btn btn-danger my-4 btn-block w-25 m-auto" type="submit">Sign up</button>
+      </div>
+
+</form>
+{{/if}}
+
+
+
+

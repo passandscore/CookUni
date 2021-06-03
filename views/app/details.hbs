@@ -1,0 +1,50 @@
+{{>navbar}}
+ 
+
+<div class="row form-layout p-5">
+    <div class="col-md-12">
+        <div class="recepieInfo">
+            <div class="detailsFoodImage">
+                <img src="{{foodImageURL}}"
+                    alt="">
+            </div>
+
+            <div class="infoPack">
+                <h3 class="my-3">{{meal}}</h3>
+                <p class="prep-method supertext">{{prepMethod}}</p>
+                <p class="description supertext">{{description}}</p>
+            </div>
+            <div class="actions">
+                {{#unless editButtons}}
+                <a class="btn btn-danger" href="#/recipe/archive/{{recipeId}}">Archive</a>
+                <a class="btn btn-info" href="#/recipe/edit/{{recipeId}}">Edit</a>
+                {{/unless}}
+
+                {{#unless likeButton}}
+              
+                {{#if likesCounter}}
+                {{#if hasOnlyOneLike}}<p class="h6 align-middle likeText p-1"> {{likesCounter}} like</p>{{else}}<p class="h6  align-middle likeText p-1"> {{likesCounter}} likes</p>{{/if}}
+                {{/if}}
+
+
+                <a class="btn btn-success likeFontSize" href="#/recipe/like/{{recipeId}}">
+                <i class="fas fa-thumbs-up fa-1"></i></a>
+                {{/unless}}
+            </div>
+        </div>
+
+        <div class="detailsIngredients">
+            <h3 class="my-3 ingredient">Ingredients</h3>
+            <ul>
+            {{#each ingredients}}
+                <li>{{this}}</li>
+            {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{>notifications}}
+{{>footer}}
+
+

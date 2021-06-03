@@ -1,0 +1,86 @@
+{{>navbar}}
+
+
+<form class="text-center p-5 form-layout" action="{{#if editMode}}#/recipe/edit{{else}}#/recipes/share{{/if}}" method="POST" id="share-receipt-form" >
+     
+    {{#if editMode}}
+    <p class="h4 mb-4">Edit Recipe</p>
+    {{else}}
+    <p class="h4 mb-4">Share Recipe</p>
+    {{/if}}
+
+    <div class="mb-4">
+    <input type="text" id="defaultRecepieShareMeal" name="meal" class="form-control {{#if meal.invalid}} is-invalid {{/if}} {{#if meal.valid}} is-valid{{/if}}"   value="{{meal.input}}" placeholder="Meal">
+    {{#if meal.invalid}}<div class="invalid-feedback"> {{meal.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    <input type="text" id="defaultRecepieShareIngredients" name="ingredients" class="form-control {{#if ingredients.invalid}} is-invalid {{/if}} {{#if ingredients.valid}} is-valid{{/if}}"  value="{{ingredients.input}}" placeholder="Ingredients">
+    {{#if ingredients.invalid}}<div class="invalid-feedback"> {{ingredients.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    <textarea type="text" id="defaultRecepieShareMethodOfPreparation" name="prepMethod"
+    class="form-control{{#if prepMethod.invalid}} is-invalid {{/if}} {{#if prepMethod.valid}} is-valid{{/if}}" placeholder="Method of preparation">{{prepMethod.input}}</textarea>
+    {{#if prepMethod.invalid}}<div class="invalid-feedback"> {{prepMethod.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    <textarea type="text" id="defaultRecepieShareDescription" name="description" class="form-control  {{#if description.invalid}} is-invalid {{/if}} {{#if description.valid}} is-valid{{/if}}"  placeholder="Description">{{description.input}}</textarea>
+    {{#if description.invalid}}<div class="invalid-feedback"> {{description.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    <input type="text" id="defaultRecepieShareFoodImageURL" name="foodImageURL" class="form-control  {{#if foodImageURL.invalid}} is-invalid {{/if}} {{#if foodImageURL.valid}} is-valid{{/if}}"  value="{{foodImageURL.input}}" placeholder="Food Image URL...">
+    {{#if foodImageURL.invalid}}<div class="invalid-feedback"> {{foodImageURL.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    <select name="category" class=" custom-select {{#if category.invalid}} is-invalid {{/if}} {{#if category.valid}} is-valid{{/if}}" value="{{category.input}}">
+        <option value="Select category...">Select category...</option>
+
+        <option value="Vegetables and legumes/beans..***..https://cdn.pixabay.com/photo/2017/10/09/19/29/eat-2834549__340.jpg" {{#if option1}} selected {{/if}}>Vegetables and legumes/beans</option>
+
+        <option value="Fruits..***..https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature_thumb.jpg?sfvrsn=7abe71fe_4" {{#if option2}}selected {{/if}}>Fruits</option>
+
+        <option value="Grain Food..***..https://www.pricechopper.com/wp-content/uploads/2011/10/whole-grain-breads.jpg" {{#if option3}}selected {{/if}}>Grain Food</option>
+
+        <option value="Milk, cheese, eggs and alternatives..***..https://www.sysco.ca/dam/jcr:15cf6156-a061-4bb0-933f-140c1efa798d/Milk%20card.jpg" {{#if option4}}selected {{/if}}>Milk, cheese, eggs and alternatives</option>
+
+        <option value="Lean meats and poultry, fish and alternatives..***..https://t3.ftcdn.net/jpg/01/18/84/52/240_F_118845283_n9uWnb81tg8cG7Rf9y3McWT1DT1ZKTDx.jpg" {{#if option5}}selected {{/if}}>Lean meats and poultry, fish and alternatives</option>
+    </select>
+     {{#if category.invalid}}<div class="invalid-feedback"> {{category.msg}}</div>{{/if}}
+    </div>
+
+    <div class="mb-4">
+    {{#if editMode}}
+    <button class="btn btn-danger w-25 m-auto my-4 btn-block" type="submit">Edit it</button>
+    {{else}}
+    <button class="btn btn-danger w-25 m-auto my-4 btn-block" type="submit">Share it</button>
+    {{/if}}
+    </div>
+
+    {{#if editMode}}
+      <input type="hidden" name="id" value="{{id}}">
+      <input type="hidden" name="likesCounter" value="{{likesCounter}}">
+      <input type="hidden" name="likes" value="{{likes}}">
+      {{/if}}
+</form>
+
+{{>notifications}}
+{{>footer}}
+
+<script>
+const tx = document.getElementsByTagName("textarea");
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = "auto";
+  this.style.height = (this.scrollHeight) + "px";
+}
+</script>
+
+

@@ -1,0 +1,19 @@
+
+<header class="masthead"> {{!-- removed mb-auto --}}
+    <div class="inner">
+        <h3 class="masthead-brand" >CookUni</h3>
+        <nav class="nav nav-masthead justify-content-center ml-auto ">
+            {{#unless isLoading}}
+            <a class="nav-link {{#if homeActive}} active {{/if}}" href="#/">Home</a>
+            {{#if loggedIn}}
+            <a class="nav-link" href="#">Welcome, {{firstname}} {{lastname}}!</a>
+            <a class="nav-link {{#if sharedActive}} active {{/if}}" href="#/recipes/share">Share recipe</a>
+            <a class="nav-link" href="#/user/logout">Logout</a>
+            {{else}}
+            <a class="nav-link {{#if loginActive}} active {{/if}}" href="#/user/login">Login</a>
+            <a class="nav-link {{#if registerActive}} active {{/if}}" href="#/user/signup">Register</a>
+            {{/if}}
+            {{/unless}}
+        </nav>
+    </div>
+</header>
