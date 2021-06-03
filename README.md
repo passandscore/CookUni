@@ -10,7 +10,7 @@
 
 Kingsland University - Module 4 - Final Project
 
-Implemented a Web application (SPA) using HTML5, JavaScript, AJAX, and JSON with cloud-based backend (Kinvey). The application should store users and recipes. Users should be able to register, login, logout and view all recipes. They should also be able to create, view, like and archive recipes, depending on their authentication.
+Implemented a Web application (SPA) using HTML5, JavaScript, AJAX, and JSON with cloud-based backend (Kinvey). The application store users and recipes. Users are able to register, login, logout and view all recipes. They can also create, view, like and archive recipes, depending on their authentication.
 
 ### Built With
 
