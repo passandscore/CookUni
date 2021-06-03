@@ -5,7 +5,7 @@
 ## About The Project
 
 <p align=”center”>
-<img src="./images/readme-cover" alt="Logo" width="800" height="600">
+<img src="images/readme-cover.png" alt="Logo" width="800" height="600">
 </p>
 
 Kingsland University - Module 4 - Final Project
